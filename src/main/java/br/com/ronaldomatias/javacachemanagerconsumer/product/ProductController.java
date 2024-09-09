@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
-	private ProductService productService;
+	private final ProductService productService;
 
 	public ProductController(ProductService anyService) {
 		this.productService = anyService;
