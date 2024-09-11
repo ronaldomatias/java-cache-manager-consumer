@@ -1,8 +1,8 @@
 package br.com.ronaldomatias.javacachemanagerconsumer.product;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.Data;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,9 +15,20 @@ public class ProductController {
 		this.productService = anyService;
 	}
 
-	@GetMapping("/categories")
-	public List<String> getCategories() {
-		return productService.getCategories();
+	@GetMapping("/category")
+	public List<String> loadCategories() {
+		return productService.loadCategories();
+	}
+
+	@PostMapping("/category")
+	public ResponseEntity<?> saveCategory(@RequestBody SaveCategoryDTO dto) {
+		productService.saveCategory(dto);
+		return ResponseEntity.ok().build();
+	}
+
+	@Data
+	public static class SaveCategoryDTO {
+		private String category;
 	}
 
 }
