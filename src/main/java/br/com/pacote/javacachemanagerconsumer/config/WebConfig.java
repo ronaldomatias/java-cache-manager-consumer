@@ -1,4 +1,4 @@
-package br.com.ronaldomatias.javacachemanagerconsumer.config;
+package br.com.pacote.javacachemanagerconsumer.config;
 
 import br.com.ronaldomatias.cachemanager.aspect.CacheAspect;
 import org.springframework.context.annotation.Bean;

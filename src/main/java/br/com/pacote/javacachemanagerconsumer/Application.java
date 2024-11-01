@@ -1,9 +1,10 @@
-package br.com.ronaldomatias.javacachemanagerconsumer;
+package br.com.pacote.javacachemanagerconsumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.EnableLoadTimeWeaving;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = "br.com.ronaldomatias.cachemanager")
 @SpringBootApplication
 public class Application {
 

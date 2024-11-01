@@ -1,5 +1,6 @@
-package br.com.ronaldomatias.javacachemanagerconsumer.product;
+package br.com.pacote.javacachemanagerconsumer.product;
 
+import br.com.pacote.javacachemanagerconsumer.dto.ProductDTO;
 import br.com.ronaldomatias.cachemanager.annotation.AnnotationDTO;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,9 @@ public class ProductController {
 		this.productService = anyService;
 	}
 
-	@GetMapping("/category")
-	public List<String> loadCategories() {
-		return productService.loadCategories(99254L, BigDecimal.valueOf(0.25), new AnnotationDTO("1", 25L, false));
+	@GetMapping("/category/{distributorKey}")
+	public List<String> loadCategories(@PathVariable Long distributorKey) {
+		return productService.loadCategories(distributorKey, BigDecimal.valueOf(0.25), new ProductDTO(1234L, "1248"));
 	}
 
 	@PostMapping("/category")
